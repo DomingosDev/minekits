@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {DAO} from './utils/DAO' ;
 
 function App() {
+
+  const d = new DAO();
+  d.save({id:1, name:'OMAAAGAAA'})
+  d.save({name:'OMAAAGAAA3'})
+  d.save({id:1, name:'OMAAAGAAA26'})
   return (
     <div className="App">
       <header className="App-header">
