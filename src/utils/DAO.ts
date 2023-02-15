@@ -1,6 +1,6 @@
 export class DAO{
     private tableName = 'table'
-    private filters: any[] = []
+    public filters: any[] = []
     private start = 0;
     private limit = Infinity;
 
@@ -60,7 +60,6 @@ export class DAO{
                 switch (operand){
                     case "=":
                         return result && item[target] == value;
-                        break;
                     case "!=":
                         return result && item[target] != value;
                     default:
@@ -73,20 +72,30 @@ export class DAO{
     }
 
     all(){
-        let rows = this.fetch();
-        setTimeout(()=>this.filters = []);
+        let rows = this.fetch()
+        this.filters = []
         return rows
     }
 
     one(){
-        let result = this.fetch().shift();
-        setTimeout(()=>this.filters = []);
+        let result = this.fetch().shift()
+        this.filters = []
         return result 
     }
 
     table(tableName: string){
         this.tableName = tableName
         return this
+    }
+
+    truncate(){
+        localStorage.setItem( this.tableName, '[]' );
+        return this;
+    }
+
+    import(data: any){
+        localStorage.setItem( this.tableName, JSON.stringify(data) );
+        return this;
     }
     
 }

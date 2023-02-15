@@ -44,4 +44,36 @@ describe("Data Access Object Tests", ()=>{
         expect( dao.where('id = 2').one() ).toMatchObject( {id:2, name:'I\'m the first!'} )
         expect( dao.where('id = 2').and('name = New Item').all().length.toString() ).toMatch('0')
     })
+
+    test('this should truncate table data', () => {
+        dao.save({name:'I will be deleted'});
+
+        let count = dao.all().length;
+        let afterCount = dao.truncate().all().length;
+
+        expect( count ).toBeGreaterThan(afterCount);
+        expect( afterCount ).toEqual(0);
+    })
+
+    test('this should truncate table data', () => {
+        dao.truncate()
+            .import([
+                {
+                    'id': 1,
+                    'name': 'One'
+                },
+                {
+                    'id': 2,
+                    'name': 'Two'
+                },
+                {
+                    'id': 3,
+                    'name': 'Three'
+                }
+            ])
+            ;
+
+        expect( dao.all().length ).toEqual(3);
+    })
+
   })
