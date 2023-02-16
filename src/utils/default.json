@@ -5,21 +5,21 @@
             "name": "Aqua Affinity",
             "group": 0,
             "max": 1,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 2,
             "name": "Curse of Binding",
             "group": 0,
             "max": 1,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 3,
             "name": "Curse of Vanishing",
             "group": 0,
             "max": 1,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 4,
@@ -33,56 +33,56 @@
             "name": "Feather Falling",
             "group": 0,
             "max": 4,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 6,
             "name": "Fire Aspect",
             "group": 0,
             "max": 2,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 7,
             "name": "Flame",
             "group": 0,
             "max": 1,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 8,
             "name": "Impaling",
             "group": 0,
             "max": 5,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 9,
             "name": "Knockback",
             "group": 0,
             "max": 2,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 10,
             "name": "Looting",
             "group": 0,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 11,
             "name": "Luck of the Sea",
             "group": 0,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 12,
             "name": "Lure",
             "group": 0,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 13,
@@ -96,77 +96,77 @@
             "name": "Punch",
             "group": 0,
             "max": 2,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 15,
             "name": "Quick Charge",
             "group": 0,
             "max": 3,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 16,
             "name": "Respiration",
             "group": 0,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 17,
             "name": "Soul Speed",
             "group": 0,
             "max": 3,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 18,
             "name": "Sweeping Edge",
             "group": 0,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 19,
             "name": "Swift Sneak",
             "group": 0,
             "max": 3,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 20,
             "name": "Thorns",
             "group": 0,
             "max": 3,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 21,
             "name": "Unbreaking",
             "group": 0,
             "max": 3,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 22,
             "name": "Blast Protection",
             "group": 1,
             "max": 4,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 23,
             "name": "Fire Protection",
             "group": 1,
             "max": 4,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 24,
             "name": "Projectile Protection",
             "group": 1,
             "max": 4,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 25,
@@ -180,7 +180,7 @@
             "name": "Bane of Arthropods",
             "group": 2,
             "max": 5,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 27,
@@ -194,49 +194,49 @@
             "name": "Smite",
             "group": 2,
             "max": 5,
-            "multiplier": 2
+            "multiplier": 1
         },
         {
             "id": 29,
             "name": "Fortune",
             "group": 4,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 30,
             "name": "Silk Touch",
             "group": 4,
             "max": 1,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 31,
             "name": "Depth Strider",
             "group": 8,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 32,
             "name": "Frost Walker",
             "group": 8,
             "max": 2,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 33,
             "name": "Infinity",
             "group": 16,
             "max": 1,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 34,
             "name": "Mending",
             "group": 16,
             "max": 1,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 35,
@@ -250,21 +250,21 @@
             "name": "Channeling",
             "group": 64,
             "max": 1,
-            "multiplier": 8
+            "multiplier": 4
         },
         {
             "id": 37,
             "name": "Riptide",
             "group": 96,
             "max": 3,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 38,
             "name": "Multishot",
             "group": 128,
             "max": 1,
-            "multiplier": 4
+            "multiplier": 2
         },
         {
             "id": 39,
