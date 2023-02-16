@@ -12,6 +12,8 @@ export class Kit extends Model{
     static set current(value: Kit){
         Kit._current = value;
     }
+    
+    static get current(){
         return Kit._current;
     }
 
