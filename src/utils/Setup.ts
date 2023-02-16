@@ -2,7 +2,7 @@ import { DAO } from "./DAO";
 
 export class Setup{
     public static init(){
-        const db = new DAO;
+        const db = new DAO();
 
         let items = db.table('items').all().length;
         let enchants = db.table('enchants').all().length;

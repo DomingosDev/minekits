@@ -17,7 +17,7 @@ export class DAO{
         all = all.filter((dbItem: any) => dbItem.id !== item.id );
         all.push(item);
         localStorage.setItem( this.tableName, JSON.stringify(all) );
-        return all;
+        return item;
     }
 
     where(condition:string){
@@ -47,7 +47,7 @@ export class DAO{
 
     remove(item: any){
         let all = JSON.parse( localStorage.getItem( this.tableName ) || '[]' );
-        all = all.filter((dbItem: any) => dbItem.id != item.id );
+        all = all.filter((dbItem: any) => dbItem.id.toString() !== item.id.toString() );
         localStorage.setItem( this.tableName, JSON.stringify(all) );
         return all;
     }
@@ -59,9 +59,11 @@ export class DAO{
                 let [target, operand, value] = filter;
                 switch (operand){
                     case "=":
-                        return result && item[target] == value;
+                        return result && item[target].toString() === value.toString();
                     case "!=":
-                        return result && item[target] != value;
+                        return result && item[target].toString() !== value.toString();
+                    case "in":
+                        return result && ( value.split(',').indexOf( item[target].toString() ) != -1 )
                     default:
                         return result;
                 }
