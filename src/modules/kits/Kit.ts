@@ -7,6 +7,15 @@ export class Kit extends Model{
     public name: String = '';
 
     static tableName: string = 'kits';
+    static _current: Kit;
+
+    static set current(value: Kit){
+        Kit._current = value;
+    }
+        return Kit._current;
+    }
+
+
 
     addItem(item: Item){
         this.save();
@@ -22,7 +31,7 @@ export class Kit extends Model{
         kitItem.save();
     }
 
-    items(){
+    get items(): Array<KitItem>{
         return KitItem.find(`kitId = ${this.id}`)
     }
 }
