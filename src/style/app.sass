@@ -1,6 +1,8 @@
 @import reset
 @import placeholders
 
+a
+    text-decoration: none
 
 body 
     margin: 0
@@ -85,10 +87,10 @@ body
         display: flex
         text-align: center
         justify-content: center
-        width: 100%
         color: #9EBCC7
         height: 50px
         margin-top: auto
+        padding: 0 10px
     
     .sprite
         align-self: center
@@ -147,25 +149,17 @@ body
     
     
     
-%sidebar-rounded
-    border-radius: 4px
-    max-width: 564px
-    width: 100%
-    overflow: hidden
-
-
 .detail
     display: flex
     width: 100%
     
     &_body
         width: 100%
-        max-width: 564px
+        max-width: 554px
 
     &_main
         @extend %dark-metal-bg
         @extend %shadow
-        @extend %sidebar-rounded
 
     &_header
         @extend %forest-green-bg
@@ -175,13 +169,17 @@ body
         position: relative
         z-index: 10
         color: #9EBCC7
+        border-radius: 4px 4px 0 0
         .sprite
             margin: 0 15px
+        &.is-new-item
+            padding-left: 20px
     &_item-list
         padding: 20px
         padding-left: 12px
         padding-bottom: 12px
         display: flex
+        flex-wrap: wrap
     &_item
         @extend %gun-metal-bg
         @extend %shadow
@@ -210,11 +208,12 @@ body
             &:after
                 transform: translate(-50%, -50%) rotate(90deg)
     &_sidebar
+        @extend %shadow
+        @extend %dark-metal-bg
         width: 100%
         margin-left: 20px
-        @extend %dark-metal-bg
-        @extend %shadow
-        @extend %sidebar-rounded
+        border-radius: 4px
+        max-width: 466px
 
 .item
     &_enchantments
@@ -280,22 +279,44 @@ body
         transition: opacity 300ms ease-out
 
 .item-selector
-    @extend %aspargus-bg
-    position: absolute
     top: 100%
-    padding: 0
     max-width: 270px
-    opacity: 0
-    max-height: 0
-    overflow: hidden
-    &.is-active
-        opacity: 1
-        max-height: 340px
-        padding: 10px 0
-        padding-left: 12px
-        transition: opacity 100ms ease-out, max-height 300ms ease-out, padding 0ms 0ms
-
+    margin: 10px auto
     .sprite
         margin: 0
         margin-right: 13px
         cursor: pointer
+
+.detail_header
+    .sprite
+        cursor: pointer
+    .item-selector
+        @extend %aspargus-bg
+        @extend %shadow
+        position: absolute
+        padding: 0
+        opacity: 0
+        max-height: 0
+        overflow: hidden
+        margin: 0
+        border-radius: 0 0 4px 0
+        &.is-active
+            opacity: 1
+            max-height: 340px
+            padding: 10px 0
+            padding-left: 12px
+            transition: opacity 100ms ease-out, max-height 300ms ease-out, padding 0ms 0ms
+
+.delete-button
+    font-size: 14px
+    color: #9EBCC7
+    border: solid 1px #9EBCC7
+    margin-left: auto
+    margin-right: 12px
+    padding: 8px
+    cursor: pointer
+    transition: all 150ms ease-in
+
+    &:hover
+        background: #9A4C2B
+        transition: all 300ms ease-out

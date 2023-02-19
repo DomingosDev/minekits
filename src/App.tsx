@@ -2,8 +2,6 @@ import './style/app.css';
 import {Setup} from './utils/Setup'
 import KitDetail from './components/KitDetail';
 import KitList from './components/KitList';
-
-
 import { BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 
 Setup.init();
@@ -12,15 +10,19 @@ function App() {
 
   return (
     <div className="app">
-      <header className="app_header">
-        <h1 className="header">MineKits</h1>
-      </header>
-
       <BrowserRouter>
+        <header className="app_header">
+          <Link to="/">
+            <h1 className="header">MineKits</h1>
+          </Link>
+      
+        </header>
+
         <Routes>
           <Route path="/"  element={<KitList/>} ></Route>
           <Route path="/kit/:kitId/:name" element={<KitDetail/>}></Route>
           <Route path="/item/:kitId/:itemId/:name" element={<KitDetail/>}></Route>
+          <Route path="/item/:kitId/new" element={<KitDetail/>}></Route>
         </Routes>
       </BrowserRouter>
 

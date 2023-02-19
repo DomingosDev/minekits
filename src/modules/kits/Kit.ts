@@ -25,11 +25,6 @@ export class Kit extends Model{
         this.save();
 
         let kitItem = new KitItem();
-        /*
-            public item_id: Number = 0;
-            public kit_id: Number = 0;
-        */
-
         kitItem.itemId  = item.id;
         kitItem.kitId   = this.id;
         kitItem.save();

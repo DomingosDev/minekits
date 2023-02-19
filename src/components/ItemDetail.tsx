@@ -3,8 +3,10 @@ import mermaid from "mermaid";
 import Item from '../modules/minecraft/Item';
 import { Item as KitItem } from '../modules/kits/Item';
 import Enchantment from '../modules/minecraft/Enchantment';
+import { useNavigate } from "react-router-dom";
 
 export default function ItemDetail(props:any) {
+    const navigate = useNavigate();
     let {item, calc, setItem, kit} = props;
 
     let itemGroups = item.groups;
@@ -22,8 +24,9 @@ export default function ItemDetail(props:any) {
     return (
         <div className="detail_sidebar">
             <div className="detail_header">
-                <i onClick={setSelector.bind(null, true)} className={"sprite is-menu ".concat(getClassesByItemName(item.name))}></i>
+                <i onClick={setSelector.bind(null, !selectorMenuIsOpen)} className={"sprite is-menu ".concat(getClassesByItemName(item.name))}></i>
                 {item.name}
+                <span className="delete-button" onClick={deleteItem}>delete</span>
                 <div className={"item-selector ".concat((selectorMenuIsOpen)? 'is-active' : '')}>
                     {itemSelectorList}
                 </div>
@@ -138,7 +141,16 @@ export default function ItemDetail(props:any) {
         item.itemId = selected.id;
         item.save();
         setSelector(false)
+
+        navigate(`/item/${kit.id}/${item.id}/${selected.name}`);
         setItem(KitItem.findOne(`id = ${item.id}`));
+    }
+
+    function deleteItem(){
+        if( !window.confirm(`You really want to delete '${item.name}'?`) ) return;
+        item.enchantments.forEach((enchantment: Enchantment) => enchantment.delete() )
+        item.delete()
+        navigate(`/kit/${kit.id}/${kit.name}`)
     }
 
 }
