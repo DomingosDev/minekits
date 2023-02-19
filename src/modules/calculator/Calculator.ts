@@ -40,12 +40,13 @@ export default class Calculator{
 
         enchantments.sort((a: Enchantment, b: Enchantment) => a.cost - b.cost)
 
-        steps = enchantments.map((enchantment: Enchantment)=>{
+        steps = enchantments.map((enchantment: Enchantment, index: number)=>{
             return {
                 isItem: false,
                 name: enchantment.name,
                 value: enchantment.cost,
-                anvilUses: 0
+                anvilUses: 0,
+                id: Math.pow(2, index+1)
             };
         });
         
@@ -54,7 +55,8 @@ export default class Calculator{
             name: item.item.name,
             value: 0,
             anvilUses: 0,
-            cost: 0
+            cost: 0,
+            id: Math.pow(2, 0)
         });
 
         // mergin books and first merge of item
@@ -81,8 +83,12 @@ export default class Calculator{
                 name: `${itemStep.name},${next.name}`,
                 value: itemStep.value + next.value,
                 wp: workPenalty,
+                isItem: true,
                 anvilUses: Math.max.apply(null,[itemStep.anvilUses, next.anvilUses]) + 1,
-                cost: workPenalty + itemStep.value
+                cost: workPenalty + itemStep.value,
+                id: itemStep.id | next.id,
+                left: itemStep.id,
+                right: next.id
             };
         }
         
@@ -97,17 +103,27 @@ export default class Calculator{
                 let lower = steps.shift();
                 let workPenalty = calculateWorkPenalty(higher.anvilUses) + calculateWorkPenalty(lower.anvilUses);
                 let value = (lower.isItem)? higher.value : lower.value;
+                let name = (lower.isItem)? `${lower.name},${higher.name}` : `${higher.name},${lower.name}`;
+                let left = (lower.isItem)? lower.id : higher.id;
+                let right = (lower.isItem)? higher.id : lower.id;
 
                 path.push([lower, higher, workPenalty + value]);
             
                 next.push({
                     isItem: higher.isItem || lower.isItem,
-                    name: `${higher.name},${lower.name}`,
+                    name: name,
                     value: higher.value + lower.value,
                     wp: workPenalty,
                     anvilUses: Math.max.apply(null,[higher.anvilUses, lower.anvilUses]) + 1,
-                    cost: workPenalty + value
+                    cost: workPenalty + value,
+                    id: higher.id | lower.id,
+                    left: left,
+                    right: right
                 });
+            }
+
+            if(steps.length){
+                next.push(steps.shift())
             }
 
             next.sort((a: any, b: any) => a.value - b.value)

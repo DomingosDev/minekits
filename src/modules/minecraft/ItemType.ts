@@ -9,6 +9,20 @@ export default class ItemType extends Model{
     public enchants: Array<Number> = [];
 
     getEnchantments(){
-        return Enchantment.find(`id in ${this.enchants.join(',')}`)
+        let enchantments = Enchantment.find(`id in ${this.enchants.join(',')}`);
+        
+        enchantments.sort((a: Enchantment, b: Enchantment)=>{
+            if( a.group != b.group ){
+                return a.group - b.group
+            }
+
+            if(a.max != b.max){
+                return a.max - b.max
+            }
+
+            return a.name.localeCompare(b.name);
+        });
+
+        return enchantments;
     }
 }

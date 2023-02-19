@@ -17,7 +17,9 @@ export class Kit extends Model{
         return Kit._current;
     }
 
-
+    getItem(id: number){
+        return KitItem.findOne(`id = ${id}`)
+    }
 
     addItem(item: Item){
         this.save();

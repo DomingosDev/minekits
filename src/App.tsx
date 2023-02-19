@@ -1,29 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './style/app.css';
 import {Setup} from './utils/Setup'
+import KitDetail from './components/KitDetail';
+import KitList from './components/KitList';
 
+
+import { BrowserRouter, Link, Route, Routes} from 'react-router-dom';
+
+Setup.init();
 
 function App() {
 
-  Setup.init();
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header className="app_header">
+        <h1 className="header">MineKits</h1>
       </header>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/"  element={<KitList/>} ></Route>
+          <Route path="/kit/:kitId/:name" element={<KitDetail/>}></Route>
+          <Route path="/item/:kitId/:itemId/:name" element={<KitDetail/>}></Route>
+        </Routes>
+      </BrowserRouter>
+
+      <footer className="footer">made with <span className="footer_heart">❤</span> by <a href="https://github.com/DomingosDev" className="footer_link" target="_blank">DomingosDev</a></footer>
     </div>
   );
 }

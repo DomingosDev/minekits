@@ -27,6 +27,11 @@ export class Item extends Model{
         return this.item.type
     }
 
+    get groups(){
+        let selected = this.enchantmentsOptions().filter((item: any) => item.selectedLevel);
+        return selected.reduce((result: number, item: any) => result | item.group, 0);
+    }
+
     enchantmentsOptions(){
         let selected = this.enchantments
             .reduce((result: any, enchantment: Enchantment) => {

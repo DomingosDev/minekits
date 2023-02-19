@@ -1,0 +1,301 @@
+@import reset
+@import placeholders
+
+
+body 
+    margin: 0
+    font-family: 'Montserrat', sans-serif
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    background:#18252a url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAADFBMVEUAAAAUJiwcJiwUIiyt9TV/AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAgtJREFUKJEFwcFuokAYAOD/JaFhDPXENAOBPWkjzXafAgg04GnGzEyAEzbSxD4FNEJiT2qA6E3NarrZ74NyKjF3eX7gRwOOdF68kwXuUK4B+xOa1YOJjMqwICTC4/m5VhSOgX4Idb611hFWMaSpNPxQxWiKRrDjOZukJ+KlgsDtx3AKhU7xUvage5fqgoZJlCV/waBreyv78voWEnB74uy/xMkR0gfXqrJzaaY1qRvoO7+0N71AxKZglkV5SmkfMRLD8TGLNwL1cZKOIJ1+LT8Hdk5aloGij18I1yRfHBH0zrnbS2E+oNYG3Dacriwj6z8QtI56GgdYF6Gcg04TeUsne23bjYBEnAbPCRvWOAA2e0Upve9+y+sOJrPEbpfPeLxyptCEbZ5u2RvPQwOER8syYoPv/evAvRTxn2XFsig04SbmAhVXI50wB7JVcwjcxS68/9qA99A/rS+bNHYfVZiU6tPVL8UHkS4gMxwJTk1mhToQvQyice4HgymgESZWNljpVeUbNGrclZprjSQ6NNr3LPRnKLrNfDi873YrFxOi6xZwJseY15+qF3NYWgFR+FvsjdkcEuWo3U1aGH6VgP7aogsOf0aYGJAs8lrJDi8xFQL2aZ/sRWComvYNwTPfE9sTeLtYA1+KLjJZ1omYgc2QGd+U4pRECxgps73wudQcbQBR95INLqKVE/0Hm4BjDBIPdU0AAAAASUVORK5CYII=)
+
+.app
+    padding-top: 90px
+    max-width: 1040px
+    margin: 0 auto
+    &_header
+        top: 0
+        left: 0
+        right: 0
+        width: auto
+        text-align: center
+        position: fixed
+
+.header
+    color: white
+    font-weight: normal
+    font-size: 48px
+    line-height: 59px
+    margin-top: 18px
+
+.footer
+    color: white
+    font-weight: 400
+    font-size: 12px
+    line-height: 15px
+    position: fixed
+    right: 12px
+    bottom: 12px
+    &_link
+        &, &:visited
+            color: #2F5DFF
+    &_heart
+        color: #FF2F2F
+
+.kit-list
+    width: auto
+    margin: auto
+    display: flex
+    flex-wrap: wrap
+
+.kit
+    @extend %forest-green-bg
+    @extend %shadow
+    width: 128px
+    height: 128px
+    line-height: 20px
+    display: flex
+    border-radius: 4px
+    margin-bottom: 24px
+    cursor: pointer
+    flex-direction: column
+    align-content: center
+    justify-content: center
+
+    &.is-plus
+        position: relative
+        @extend %chestnut-bg
+        &:after, &:before
+            content: ''
+            width: 8px
+            height: 62px
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            background: #E9C0AF
+        &:after
+            transform: translate(-50%, -50%) rotate(90deg)
+            
+
+    & + .kit
+        margin-left: 24px
+    
+    &_name
+        display: flex
+        text-align: center
+        justify-content: center
+        width: 100%
+        color: #9EBCC7
+        height: 50px
+        margin-top: auto
+    
+    .sprite
+        align-self: center
+        margin-top: auto
+
+.sprite
+    width: 32px
+    height: 32px
+    min-width: 32px
+    min-height: 32px
+    display: inline-block
+    position: relative
+    background: url('../../public/sprites.png') no-repeat 0 0
+    &.is-shulker-box, &.is-turtle
+        background-position-x: -192px
+    &.is-diamond
+        background-position-x: -32px
+    &.is-golden
+        background-position-x: -64px
+    &.is-iron
+        background-position-x: -96px
+    &.is-stone, &.is-chainmail 
+        background-position-x: -128px
+    &.is-wooden, &.is-leather 
+        background-position-x: -160px
+    &.is-axe
+        background-position-y: -32px
+    &.is-pickaxe
+        background-position-y: -64px
+    &.is-hoe
+        background-position-y: -96px
+    &.is-sword
+        background-position-y: -128px
+    &.is-helmet
+        background-position-y: -160px
+    &.is-chestplate
+        background-position-y: -192px
+    &.is-leggings
+        background-position-y: -224px
+    &.is-boots
+        background-position-y: -256px
+    &.is-xp
+        background-position: -32px -289px
+    &.is-menu:after
+        content: ''
+        display: block
+        position: absolute
+        border: solid transparent 5px
+        border-top-color: white
+        top: 100%
+        left: 100%
+        margin-left: -4px
+        margin-top: -4px
+    &.is-flow
+        background-position: -128px -288px 
+    
+    
+    
+%sidebar-rounded
+    border-radius: 4px
+    max-width: 564px
+    width: 100%
+    overflow: hidden
+
+
+.detail
+    display: flex
+    width: 100%
+    
+    &_body
+        width: 100%
+        max-width: 564px
+
+    &_main
+        @extend %dark-metal-bg
+        @extend %shadow
+        @extend %sidebar-rounded
+
+    &_header
+        @extend %forest-green-bg
+        display: flex
+        align-items: center
+        height: 55px
+        position: relative
+        z-index: 10
+        color: #9EBCC7
+        .sprite
+            margin: 0 15px
+    &_item-list
+        padding: 20px
+        padding-left: 12px
+        padding-bottom: 12px
+        display: flex
+    &_item
+        @extend %gun-metal-bg
+        @extend %shadow
+        width: 50px
+        height: 50px
+        margin-bottom: 8px
+        margin-left: 8px
+        border-radius: 4px
+        display: flex
+        justify-content: center
+        align-items: center
+        &.is-selected
+            @extend %aspargus-bg
+        &.is-new
+            @extend %chestnut-bg
+            position: relative
+            &:after, &:before
+                content: ''
+                width: 4px
+                height: 26px
+                position: absolute
+                left: 50%
+                top: 50%
+                transform: translate(-50%, -50%)
+                background: #E9C0AF
+            &:after
+                transform: translate(-50%, -50%) rotate(90deg)
+    &_sidebar
+        width: 100%
+        margin-left: 20px
+        @extend %dark-metal-bg
+        @extend %shadow
+        @extend %sidebar-rounded
+
+.item
+    &_enchantments
+        padding: 20px
+        color: white
+    &_detail
+        display: flex
+        align-items: center
+        align-content: center
+        padding: 0 20px
+        padding-top: 20px
+        color: white
+        .sprite
+            margin-right: 10px
+            &.is-flow
+                margin-right: 0
+                margin-left: auto
+                cursor: pointer
+    &_enchantment
+        display: flex
+        align-content: center
+        align-items: center
+        &:hover
+            background: rgba(0,0,0,0.1)
+        &.is-disabled
+            text-decoration: line-through
+            opacity: 0.3
+            .item_level
+    &_levels
+        margin-left: auto
+        color: white
+        width: 130px
+    &_level
+        display: inline-block
+        width: 20px
+        height: 20px
+        border: solid 1px white
+        margin: 2px
+        text-align: center
+        line-height: 20px
+        cursor: pointer
+        &:hover
+            background: rgba(#FFF, 0.1)
+        &.is-selected
+            background: rgba(#FFF, 0.3)
+
+.mermaid-graph
+    position: fixed;
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: rgba(0,0,0,0.95)
+    overflow: scroll
+    z-index: -1
+    opacity: 0
+    transition: opacity 300ms ease-out, z-index 0ms linear 301ms
+    display: flex
+    justify-content: center
+    &.is-active
+        z-index: 10
+        opacity: 1
+        transition: opacity 300ms ease-out
+
+.item-selector
+    @extend %aspargus-bg
+    position: absolute
+    top: 100%
+    padding: 0
+    max-width: 270px
+    opacity: 0
+    max-height: 0
+    overflow: hidden
+    &.is-active
+        opacity: 1
+        max-height: 340px
+        padding: 10px 0
+        padding-left: 12px
+        transition: opacity 100ms ease-out, max-height 300ms ease-out, padding 0ms 0ms
+
+    .sprite
+        margin: 0
+        margin-right: 13px
+        cursor: pointer
