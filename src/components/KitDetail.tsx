@@ -6,6 +6,7 @@ import NewItem from './NewItem';
 import { Item } from '../modules/kits/Item';
 import { Kit } from '../modules/kits/Kit';
 import { Enchantment } from '../modules/kits/Enchantment';
+import KitResume from './KitResume';
 
 
 export default function KitDetail() {
@@ -48,6 +49,9 @@ export default function KitDetail() {
                         <Link to={`/item/${kitId}/new`} className="detail_item is-new" key="new"></Link>
                     </div>
                 </div>
+
+                <KitResume kit={kit} item={item} calc={calc}/>
+
             </div>
 
             {(itemId)? <ItemDetail item={item} calc={calc} setItem={setItem} kit={kit} /> : '' }
