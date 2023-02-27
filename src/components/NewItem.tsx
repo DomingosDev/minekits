@@ -34,7 +34,7 @@ export default function NewItem(props:any) {
         item.itemId = selected.id;
         item.save();
 
-        navigate(`/item/${kit.id}/${item.id}/${selected.name}`);
+        navigate(`/kit/${kit.id}/item/${item.id}/${selected.name}`);
         setItem(KitItem.findOne(`id = ${item.id}`));
     }
 

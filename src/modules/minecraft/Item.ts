@@ -12,4 +12,9 @@ export default class Item extends Model{
     getType(){
         return ItemType.findOne(`id = ${this.type}`)
     }
+
+    get fullName(){
+        return this.name
+    }
+
 }

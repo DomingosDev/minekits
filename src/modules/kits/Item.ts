@@ -23,6 +23,10 @@ export class Item extends Model{
         return this.item.name
     }
 
+    get fullName(){
+        return this.item.name
+    }
+
     get type(){
         return this.item.type
     }

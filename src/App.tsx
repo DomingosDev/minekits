@@ -11,18 +11,24 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <header className="app_header">
-          <Link to="/">
-            <h1 className="header">MineKits</h1>
-          </Link>
-      
-        </header>
+      <header className="app_header">
+        <Link to="/">
+          <h1 className="header">MineKits</h1>
+        </Link>
+     
+      </header>
 
         <Routes>
           <Route path="/"  element={<KitList/>} ></Route>
+          
           <Route path="/kit/:kitId/:name" element={<KitDetail/>}></Route>
-          <Route path="/item/:kitId/:itemId/:name" element={<KitDetail/>}></Route>
-          <Route path="/item/:kitId/new" element={<KitDetail/>}></Route>
+          <Route path="/kit/:kitId/costs" element={<KitDetail isCosts={true}/>}></Route>
+          <Route path="/kit/:kitId/server" element={<KitDetail isServers={true}/>}></Route>
+          <Route path="/kit/:kitId/farming" element={<KitDetail isPerformance={true}/>}></Route>
+
+          <Route path="/kit/:kitId/item/new" element={<KitDetail isNewItem={true}/>}></Route>
+          <Route path="/kit/:kitId/item/:itemId/:name" element={<KitDetail isItemDetail={true}/>}></Route>
+
         </Routes>
       </BrowserRouter>
 

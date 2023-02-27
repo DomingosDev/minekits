@@ -12,16 +12,16 @@ body
     background:#18252a url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAADFBMVEUAAAAUJiwcJiwUIiyt9TV/AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAgtJREFUKJEFwcFuokAYAOD/JaFhDPXENAOBPWkjzXafAgg04GnGzEyAEzbSxD4FNEJiT2qA6E3NarrZ74NyKjF3eX7gRwOOdF68kwXuUK4B+xOa1YOJjMqwICTC4/m5VhSOgX4Idb611hFWMaSpNPxQxWiKRrDjOZukJ+KlgsDtx3AKhU7xUvage5fqgoZJlCV/waBreyv78voWEnB74uy/xMkR0gfXqrJzaaY1qRvoO7+0N71AxKZglkV5SmkfMRLD8TGLNwL1cZKOIJ1+LT8Hdk5aloGij18I1yRfHBH0zrnbS2E+oNYG3Dacriwj6z8QtI56GgdYF6Gcg04TeUsne23bjYBEnAbPCRvWOAA2e0Upve9+y+sOJrPEbpfPeLxyptCEbZ5u2RvPQwOER8syYoPv/evAvRTxn2XFsig04SbmAhVXI50wB7JVcwjcxS68/9qA99A/rS+bNHYfVZiU6tPVL8UHkS4gMxwJTk1mhToQvQyice4HgymgESZWNljpVeUbNGrclZprjSQ6NNr3LPRnKLrNfDi873YrFxOi6xZwJseY15+qF3NYWgFR+FvsjdkcEuWo3U1aGH6VgP7aogsOf0aYGJAs8lrJDi8xFQL2aZ/sRWComvYNwTPfE9sTeLtYA1+KLjJZ1omYgc2QGd+U4pRECxgps73wudQcbQBR95INLqKVE/0Hm4BjDBIPdU0AAAAASUVORK5CYII=)
 
 .app
-    padding-top: 90px
     max-width: 1040px
     margin: 0 auto
+    margin-bottom: 20px
     &_header
         top: 0
         left: 0
         right: 0
         width: auto
         text-align: center
-        position: fixed
+        margin-bottom: 30px
 
 .header
     color: white
@@ -31,13 +31,15 @@ body
     margin-top: 18px
 
 .footer
+    width: 100%
     color: white
     font-weight: 400
     font-size: 12px
     line-height: 15px
-    position: fixed
     right: 12px
     bottom: 12px
+    text-align: right
+    margin-top: 20px
     &_link
         &, &:visited
             color: #2F5DFF
@@ -134,6 +136,28 @@ body
         background-position-y: -256px
     &.is-xp
         background-position: -32px -289px
+    &.is-flow
+        background-position: -128px -288px 
+    &.is-emerald
+        background-position: 0px -288px
+    &.is-coin
+        background-position: -64px -288px
+    &.is-clock
+        background-position: -160px -288px 
+    &.is-book
+        background-position: -96px -288px
+    &.is-bow
+        background-position: -192px -128px
+    &.is-elytra
+        background-position: -192px -64px
+    &.is-shield
+        background-position: -192px -192px
+    &.is-crossbow
+        background-position: -192px -96px
+    &.is-trident
+        background-position: -192px -256px
+    &.is-fishing
+        background-position: -192px -288px
     &.is-menu:after
         content: ''
         display: block
@@ -144,8 +168,6 @@ body
         left: 100%
         margin-left: -4px
         margin-top: -4px
-    &.is-flow
-        background-position: -128px -288px 
     
     
     
@@ -284,7 +306,7 @@ body
     margin: 10px auto
     .sprite
         margin: 0
-        margin-right: 13px
+        margin-right: 11px
         cursor: pointer
 
 .detail_header
@@ -328,16 +350,118 @@ body
     color: white
     padding: 12px
     margin-top: 20px
+    min-height: 200px
+    display: flex
+    flex-direction: column;
     &_line
         display: flex
         align-items: center
         align-content: center
         margin-bottom: 12px
+        &.is-footer
+            margin-top: auto
+            padding-top: 12px
+            display: block
+            font-size: 14px
+            color: #9EBCC7
+            a
+                font-size: 12px
+                color: #9EBCC7
+                margin-right: 8px
+                text-decoration: underline
         .sprite
             margin-right: 12px
+        small
+            font-size: 0.8em
+            margin-left: 12px
     &_title
         height: 38px
         line-height: 38px
         text-align: center
         color: #9EBCC7
         margin-bottom: 20px
+
+.cost
+    &_list
+        padding: 12px
+    &_item
+        display: flex
+        color: white
+        .sprite
+            margin-right: 12px
+        &-name
+            flex-grow: 1
+            display: flex
+            align-items: center
+        &-price
+            max-width: 115px
+            position: relative
+            z-index: 2
+            + .cost_item-price
+                margin-left: 12px
+            .sprite
+                position: absolute
+                right: 0
+                top: 4px
+                z-index: -1
+                margin: 0
+            input
+                color: white
+                background: none
+                border: none
+                width: 100%
+                margin-right: 5px
+                padding-right: 35px
+                padding-left: 12px
+                line-height: 40px
+                display: block
+                box-sizing: border-box
+                text-align: right
+
+%cleanInput
+    @extend %dark-metal-bg
+    padding: 12px
+    border-radius: 4px
+    color: white
+    margin-bottom: 6px
+    &:hover
+        background-color: lighten($dark-metal, 3%)
+    &.is-selected
+        background-color: lighten($dark-metal, 5%)
+    input
+        padding: 12px
+        background: none
+        border: none
+        width: 100%
+        border-radius: 4px
+        color: white
+
+
+.server
+    &_list, .peformance_form
+        padding: 12px
+    &_item
+        @extend %cleanInput
+       
+        &.is-new
+            padding: 0
+
+.performance
+    &_form
+        padding: 12px
+    &_input
+        @extend %cleanInput
+        position: relative
+        padding: 0
+        input
+            padding-right: 85px
+            text-align: right
+        &-append
+            position: absolute
+            right: 8px
+            top: 4px
+            font-size: 14px
+            display: flex
+            align-content: center
+            align-items: center
+

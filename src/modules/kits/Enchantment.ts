@@ -14,6 +14,14 @@ export class Enchantment extends Model{
         return MCEnchantment.findOne(`id = ${this.enchantmentId}`)
     }
 
+    get fullName(){
+        if(this.max === 1) return this.name
+
+        let roman = ['', 'I', 'II', 'III', 'IV', 'V' ];
+        let level = roman[this.level];
+        return `${this.name} ${level}`
+    }
+
     get name(){
         return this.enchantment.name
     }
