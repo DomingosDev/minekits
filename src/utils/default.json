@@ -466,6 +466,14 @@
                 34,
                 3
             ]
+        },
+        {
+            "id": 15,
+            "name": "Elytra",
+            "enchants": [
+                21,
+                34
+            ]
         }
     ],
     "items": [
@@ -792,6 +800,12 @@
             "type": 12,
             "name": "Fishing Rod",
             "icon": "fishingrod"
+        },
+        {
+            "id": 55,
+            "type": 15,
+            "name": "Elytra",
+            "icon": "elytra"
         }
     ]
 }
