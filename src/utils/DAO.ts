@@ -63,7 +63,7 @@ export class DAO{
                     case "!=":
                         return result && item[target].toString() !== value.toString();
                     case "in":
-                        return result && ( value.split(',').indexOf( item[target].toString() ) != -1 )
+                        return result && ( value.split(',').indexOf( item[target].toString() ) !== -1 )
                     default:
                         return result;
                 }

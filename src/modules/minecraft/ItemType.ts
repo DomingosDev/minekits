@@ -12,11 +12,11 @@ export default class ItemType extends Model{
         let enchantments = Enchantment.find(`id in ${this.enchants.join(',')}`);
         
         enchantments.sort((a: Enchantment, b: Enchantment)=>{
-            if( a.group != b.group ){
+            if( a.group !== b.group ){
                 return a.group - b.group
             }
 
-            if(a.max != b.max){
+            if(a.max !== b.max){
                 return a.max - b.max
             }
 

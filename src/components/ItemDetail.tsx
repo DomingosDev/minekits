@@ -10,7 +10,6 @@ export default function ItemDetail(props:any) {
     let {item, calc, setItem, kit} = props;
 
     let itemGroups = item.groups;
-    let [chart, setChart] = useState(generateMermaidChart(calc.getItemEnchantPath(item)));
     let [selectorMenuIsOpen, setSelector] = useState(false);
     let itemSelectorList = Item.all().map((item: Item) => (<i key={item.id.toString()} onClick={selectItem.bind(null, item)} className={"sprite ".concat(getClassesByItemName(item.name.toString()))}></i>))
 
@@ -114,7 +113,7 @@ export default function ItemDetail(props:any) {
     function getEnchantmentLevels(enchantment: any, disabled: boolean){
         let levels = [];
         for(let i=0; i<enchantment.max; i++){
-            let selected = enchantment.selectedLevel == i+1
+            let selected = enchantment.selectedLevel === i+1
             levels.push(<span key={i} onClick={()=>{  !disabled && selectLevel( enchantment, (selected)? 0 : i+1 )  }} className={"item_level ".concat( (selected)? 'is-selected' : '')}>{i+1}</span>)
         }
         return levels;

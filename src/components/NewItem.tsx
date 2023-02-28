@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 export default function NewItem(props:any) {
     let {kit, setItem} = props;
     let item = new KitItem()
-    let itemGroups = item.groups
     let itemSelectorList = Item.all().map((item: Item) => (<i key={item.id.toString()} onClick={selectItem.bind(null, item)} className={"sprite ".concat(getClassesByItemName(item.name.toString()))}></i>))
     let navigate = useNavigate();
 

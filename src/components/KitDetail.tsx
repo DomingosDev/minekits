@@ -19,7 +19,7 @@ import { default as PerformanceElement} from './Performance'
 export default function KitDetail(props: any) {
     const {isCosts, isNewItem, isItemDetail, isServers, isPerformance} = props
     const navigate = useNavigate();
-    let { kitId,itemId,name } = useParams()
+    let { kitId,itemId } = useParams()
     let kit = Kit.findOne(`id = ${kitId}`)
     let [item, setItem] = useState((itemId)? kit.getItem(itemId) : '')
     let calc = new Calculator();
@@ -39,7 +39,7 @@ export default function KitDetail(props: any) {
         newPerf.save()
         setPerformance(newPerf);
     }
-    if( performance.id != _perf.id ){
+    if( performance.id !== _perf.id ){
         setPerformance(_perf)
     }
 
@@ -50,7 +50,7 @@ export default function KitDetail(props: any) {
         setCosts(newCosts)
     }
 
-    if(costs.id != _costs.id){
+    if(costs.id !== _costs.id){
         setCosts(_costs)
     }
 
@@ -72,8 +72,8 @@ export default function KitDetail(props: any) {
                                 return (
                                     <Link 
                                         onClick={()=>{setItem(kit.getItem(item.id));}} 
-                                        to={ (itemId == item.id)? `/kit/${kitId}/${kit.name}` : `/kit/${kit.id}/item/${item.id}/${item.name}`} 
-                                        className={"detail_item ".concat((itemId == item.id)? 'is-selected' : '')} 
+                                        to={ (itemId === item.id)? `/kit/${kitId}/${kit.name}` : `/kit/${kit.id}/item/${item.id}/${item.name}`} 
+                                        className={"detail_item ".concat((itemId === item.id)? 'is-selected' : '')} 
                                         key={item.id}
                                     >
                                         <i className={'sprite '.concat(getClassesByItemName(item.name))}></i>
