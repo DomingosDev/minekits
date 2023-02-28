@@ -1,15 +1,6 @@
-import { useState, useEffect } from 'react';
-import Item from '../modules/minecraft/Item';
-import { Item as KitItem } from '../modules/kits/Item';
-import { useNavigate } from "react-router-dom";
-import { Enchantment as KitEnchantment } from '../modules/kits/Enchantment';
-import Enchantment from '../modules/minecraft/Enchantment';
-
 export default function Performance(props:any) {
     let {performance, setPerformance} = props;
 
-    console.log( 'here from performance', performance )
-    
     return (
         <div className="detail_sidebar">
             <div className="detail_header is-new-item">

@@ -1,11 +1,9 @@
 import { useNavigate, BrowserRouter, Link, Route, Routes, useParams} from 'react-router-dom';
-import { useState } from 'react';
-import Costs from '../modules/server/Costs';
 import { Item } from '../modules/kits/Item';
 
 export default function KitResume(props:any) {
     const navigate = useNavigate();
-    let {item, kit, calc, server, costs, performance} = props;
+    let {kit, calc, server, costs, performance} = props;
 
     let itemsToCalculate: Array<any> = [];
     kit.items.forEach((item: Item) => {

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Item from '../modules/minecraft/Item';
 import { Item as KitItem } from '../modules/kits/Item';
 import { useNavigate } from "react-router-dom";

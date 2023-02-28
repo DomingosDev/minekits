@@ -32,7 +32,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      <footer className="footer">made with <span className="footer_heart">❤</span> by <a href="https://github.com/DomingosDev" className="footer_link" target="_blank">DomingosDev</a></footer>
+      <footer className="footer">made with <span className="footer_heart">❤</span> by <a href="https://github.com/DomingosDev" rel="noreferrer" className="footer_link" target="_blank">DomingosDev</a></footer>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Item from '../modules/minecraft/Item';
 import { Item as KitItem } from '../modules/kits/Item';
 import { Enchantment as KitEnchantment } from '../modules/kits/Enchantment';

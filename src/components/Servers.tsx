@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Server from '../modules/server/Server';
 
 export default function Servers(props:any) {
